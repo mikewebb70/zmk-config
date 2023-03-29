@@ -80,14 +80,14 @@
         label = "NUMBER";
         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-// │    1        │     2       │    3        │      4      │    5        │       │     6       │     7       │     8       │     9       │    *         │
-     &kp N1         &kp N2        &kp N3          &kp N       &kp N5                  &kp N6       &kp N7        &kp N8        &kp N9      &kp AST
+// │    1        │     2       │    3        │      4      │    5        │       │     6       │     7       │     8       │     9       │    *        │
+     &kp N1         &kp N2        &kp N3          &kp N       &kp N5                  &kp N6       &kp N7        &kp N8        &kp N9      &kp ASTRK
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │             │             │             │   +         │    -        │       │     .       │     4       │     5       │     6       │             │
-     &sk LSHIFT   &trans        &trans        &kp PLUS        &kp MINUS             &kp DOT         &kp N4        &kp N5        &kp N6      &trans
+     &sk LSHIFT    &trans        &trans        &kp PLUS        &kp MINUS             &kp DOT         &kp N4        &kp N5        &kp N6      &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │             │             │             │             │             │       │     0       │     1       │     2       │     3       │             │
-    &sk LG(LSHIFT)  &trans        &trans        &kp AST         &trans                &kp N0        &kp N1       &kp N2        &kp N3       &trans
+    &sk LG(LSHIFT)  &trans        &trans        &kp ASTRK       &trans                &kp N0        &kp N1       &kp N2        &kp N3       &trans
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
 //                             │             │             │             │       │             │             │             │                            
                                   &trans         &trans       &trans                &trans        &trans        &trans
@@ -103,7 +103,7 @@
       &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT             &kp CARET     &kp AMPS     &kp LPAR       &kp RPAR       &kp RPAR    
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼──────────────┼─────────────┤
 // │             │             │             │             │    *        │       │  ─          │  =          │  [          │  ]           │  \          │
-      &trans        &trans        &trans        &trans        &kp AST               &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT       &kp BSLH    
+      &trans        &trans        &trans        &trans        &kp ASTRK             &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT       &kp BSLH    
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │             │             │             │             │             │       │  ─          │  +          │  {          │  }          │ "|"         │
       &trans        &trans        &trans        &trans        &trans                &kp UNDER     &kp PLUS      &kp LBRC      &kp RBRC      &kp PIPE    
