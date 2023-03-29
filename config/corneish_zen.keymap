@@ -38,7 +38,13 @@
             bindings = <&kp>, <&kp>;
         };
     };
-
+    td0: super_shift {
+        compatible = "zmk,behavior-tap-dance";
+        label = "TAP_DANCE_0";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&mt RSHFT RET>, <&caps_word>;
+      };
     conditional_layers {
         compatible = "zmk,conditional-layers";
         // Define SYS layer as tri-state
@@ -64,8 +70,8 @@
 // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    , <       │    . >      │    / ?      │
      &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT        &kp FSLH   
 // ╰──────────────┴─────────────├─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┴─────────────╯
-//                              │  ESC/GUI       TAB/NUM    │    SPC      │      │  ENT/SHFT   │  BSPC/SYM   │    CTRL      │
-                                  &mt LGUI ESC  &lt NUM TAB     &kp SPACE         &mt RSHFT RET  &lt SYM BSPC  &kp RCTRL    
+//                              │  ESC/GUI       TAB/NUM    │    SPC      │      │ENT/SHFT/CAP │  BSPC/SYM   │    CTRL      │
+                                  &mt LGUI ESC  &lt NUM TAB     &kp SPACE             &td0       &lt SYM BSPC  &kp RCTRL    
 //                              ╰─────────────┴─────────────┴─────────────╯      ╰─────────────┴─────────────┴──────────────╯
         >;
       };
@@ -74,14 +80,14 @@
         label = "NUMBER";
         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-// │    1        │     2       │             │             │             │       │             │     1       │     2       │     3       │             │
-     &kp N1         &kp N2        &trans        &trans        &trans                  &trans         &kp N1        &kp N2        &kp N3      &trans
+// │    1        │     2       │    3        │      4      │    5        │       │     6       │     7       │     8       │     9       │    *         │
+     &kp N1         &kp N2        &kp N3          &kp N       &kp N5                  &kp N6       &kp N7        &kp N8        &kp N9      &kp AST
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │             │             │             │       │             │     4       │     5       │     6       │             │
-     &trans        &trans        &trans        &trans        &trans                  &trans         &kp N4        &kp N5        &kp N6      &trans
+// │             │             │             │   +         │    -        │       │     .       │     4       │     5       │     6       │             │
+     &sk LSHIFT   &trans        &trans        &kp PLUS        &kp MINUS             &kp DOT         &kp N4        &kp N5        &kp N6      &trans
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │             │             │             │       │     0       │     7       │     8       │     9       │             │
-    &sk LG(LSHIFT)  &trans        &trans        &trans        &trans                &kp N0          &kp N7        &kp N8        &kp N9       &trans
+// │             │             │             │             │             │       │     0       │     1       │     2       │     3       │             │
+    &sk LG(LSHIFT)  &trans        &trans        &kp AST         &trans                &kp N0        &kp N1       &kp N2        &kp N3       &trans
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
 //                             │             │             │             │       │             │             │             │                            
                                   &trans         &trans       &trans                &trans        &trans        &trans
@@ -93,11 +99,11 @@
         label = "SYMBOL";
         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬──────────────┬─────────────╮
-// │  !          │  @          │  #          │  $          │  %          │       │  ^          │  &          │  *          │  (           │  )          │
-      &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT             &kp CARET     &kp AMPS     &kp ASTRK     &kp LPAR       &kp RPAR    
+// │  !          │  @          │  #          │  $          │  %          │       │  ^          │  &          │  (          │  )           │  )          │
+      &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT             &kp CARET     &kp AMPS     &kp LPAR       &kp RPAR       &kp RPAR    
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼──────────────┼─────────────┤
-// │             │             │             │             │             │       │  ─          │  =          │  [          │  ]           │  \          │
-      &trans        &trans        &trans        &trans        &trans                &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT       &kp BSLH    
+// │             │             │             │             │    *        │       │  ─          │  =          │  [          │  ]           │  \          │
+      &trans        &trans        &trans        &trans        &kp AST               &kp MINUS     &kp EQUAL     &kp LBKT      &kp RBKT       &kp BSLH    
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────│       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │             │             │             │             │             │       │  ─          │  +          │  {          │  }          │ "|"         │
       &trans        &trans        &trans        &trans        &trans                &kp UNDER     &kp PLUS      &kp LBRC      &kp RBRC      &kp PIPE    
