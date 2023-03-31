@@ -100,7 +100,7 @@
      &sk LSHIFT    &trans       &sk LG(LSHIFT)   &td1        &kp MINUS             &kp DOT      &hm RGUI 4   &hm RALT N5   &hm RALT N6   &hm RSHFT COLON 
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │  UNDO/bg%   │  CUT        │ COPY/SIGINIT   PASTE      │    _        │       │     0       │     1       │     2       │     3       │             │
-      &kp LC(z)     &kp LC(x)     &kp LC(c)    &kp LC(v)      &kp UNDER              &kp N0        &kp N1       &kp N2        &kp N3       &trans
+      &kp LC(Z)     &kp LC(X)     &kp LC(c)    &kp LC(v)      &kp UNDER              &kp N0        &kp N1       &kp N2        &kp N3       &trans
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
 //                             │             │             │             │       │             │             │             │                            
                                   &trans         &trans       &trans                &trans        &trans        &trans
