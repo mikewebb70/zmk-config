@@ -54,7 +54,7 @@
       };
     td2: quick_quote {
         compatible = "zmk,behavior-tap-dance";
-        lable = "DBLE_QUOTE";
+        label = "DBLE_QUOTE";
         tapping-term-ms = <200>;
         bindings = <&hm RSHFT SEMI>, <&kp DQT>;
       };  
