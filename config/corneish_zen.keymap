@@ -53,7 +53,7 @@
         bindings = <&hm LGUI  PLUS>, <&sk LGUI>;
       };
     td2: quick_quote {
-        compatible = "zmk,behvaior-tap-dance";
+        compatible = "zmk,behavior-tap-dance";
         lable = "DBLE_QUOTE";
         tappimg-term-ms = <200>;
         bindings = <&hm RSHFT SEMI>, <DQT>;
