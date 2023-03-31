@@ -40,17 +40,24 @@
     };
     td0: super_shift {
         compatible = "zmk,behavior-tap-dance";
-        label = "TAP_DANCE_0";
+        label = "SUPER_SHIFT";
         #binding-cells = <0>;
         tapping-term-ms = <200>;
         bindings = <&mt RSHFT RET>, <&caps_word>;
+      };
+    td1: sticky_gui {
+        compatible = "zmk,behavior-tap-dance";
+        label = "STICKY_GUI";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&hm LGUI  PLUS>, <&sk LGUI>;
       };
     conditional_layers {
         compatible = "zmk,conditional-layers";
         // Define SYS layer as tri-state
         func_tristate {
             if-layers = <NUM SYM>;
-            then-layer = <SYS>;
+
         };
     };
 
@@ -81,13 +88,13 @@
         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
 // │    1        │     2       │    3        │      4      │    5        │       │     6       │     7       │     8       │     9       │    *        │
-     &kp N1         &kp N2        &kp N3          &kp N       &kp N5                  &kp N6       &kp N7        &kp N8        &kp N9      &kp ASTRK
+     &kp N1         &kp N2        &kp N3          &kp N4       &kp N5                  &kp N6       &kp N7        &kp N8        &kp N9      &kp ASTRK
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │             │   +         │    -        │       │     .       │     4       │     5       │     6       │             │
-     &sk LSHIFT    &trans        &trans        &kp PLUS        &kp MINUS             &kp DOT         &kp N4        &kp N5        &kp N6      &trans
+// │             │             │             │+/LGUI/(LGUI)│    -        │       │     .       │     4       │     5       │     6       │             │
+     &sk LSHIFT    &trans        &trans        &td1           &kp MINUS             &kp DOT      &hm RGUI 4   &hm RALT N5   &hm RALT N6  &hm RSHFT COLON 
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │             │             │             │             │             │       │     0       │     1       │     2       │     3       │             │
-    &sk LG(LSHIFT)  &trans        &trans        &kp ASTRK       &trans                &kp N0        &kp N1       &kp N2        &kp N3       &trans
+      &kp LC(z)     &kp LC(x)     &kp LC(c)    &kp LC(v)    &sk LG(LSHIFT)           &kp N0        &kp N1       &kp N2        &kp N3       &trans
 // ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
 //                             │             │             │             │       │             │             │             │                            
                                   &trans         &trans       &trans                &trans        &trans        &trans
