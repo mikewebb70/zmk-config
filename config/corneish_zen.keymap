@@ -64,7 +64,7 @@
         // Define SYS layer as tri-state
         func_tristate {
             if-layers = <NUM SYM>;
-
+            then-layer = <SYS>;
         };
     };
 
