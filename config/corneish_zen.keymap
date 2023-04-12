@@ -28,11 +28,18 @@
 
 / {
     behaviors {
-        tildq: tilda_q {
+         tildq: tilda_q {
             compatible = "zmk,behavior-mod-morph";
             label = "GRAVE_ESCAPE";
             #binding-cells = <0>;
             bindings = <&kp Q>, <&kp TILDE>;
+            mods = <(MOD_RALT|MOD_LALT)>;
+        };
+        leftj: left_j {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LEFTARROW_J";
+            #binding-cells = <0>;
+            bindings = <&hm LGUI J>, <&kp LEFT>;
             mods = <(MOD_RALT|MOD_LALT)>;
         };
         hm: homerow_mods {
@@ -86,7 +93,7 @@
       &tildq           &kp W        &kp E         &kp R         &kp T                &kp Y         &kp U         &kp I          &kp O         &kp P      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
 // │    A         │    S        │    D        │    F        │    G        │      │    H        │    J        │    K         │    L        │  ; : (")    │
-     &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &kp G                &kp H       &hm RGUI J     &hm RALT K    &hm RCTRL L      &td2      
+     &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &kp G                &kp H       &leftj         &hm RALT K    &hm RCTRL L      &td2      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
 // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    , <       │    . >      │    / ?      │
      &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT        &kp FSLH    
