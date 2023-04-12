@@ -28,18 +28,39 @@
 
 / {
     behaviors {
-         tildq: tilda_q {
+        tildq: tilda_q {
             compatible = "zmk,behavior-mod-morph";
             label = "GRAVE_ESCAPE";
             #binding-cells = <0>;
             bindings = <&kp Q>, <&kp TILDE>;
             mods = <(MOD_RALT|MOD_LALT)>;
         };
-        leftj: left_j {
+         downj: down_j{
             compatible = "zmk,behavior-mod-morph";
-            label = "LEFTARROW_J";
+            label = "DOWNARROW_J";
             #binding-cells = <0>;
-            bindings = <&hm LGUI J>, <&kp LEFT>;
+            bindings = <&hm RGUI J>, <&kp DOWN>;
+            mods = <(MOD_RALT|MOD_LALT)>;
+        };
+         upk: up_k{
+            compatible = "zmk,behavior-mod-morph";
+            label = "UPARROW_K";
+            #binding-cells = <0>;
+            bindings = <&hm RALT K>, <&kp UP>;
+            mods = <(MOD_RALT|MOD_LALT)>;
+        };
+        rightl: right_l {
+            compatible = "zmk,behavior-mod-morph";
+            label = "RIGHTARROW_L";
+            #binding-cells = <0>;
+            bindings = <&hm RCTRL L>, <&kp RIGHT>;
+            mods = <(MOD_RALT|MOD_LALT)>;
+        };
+        lefth: left_h {
+            compatible = "zmk,behavior-mod-morph";
+            label = "LEFTARROW_H";
+            #binding-cells = <0>;
+            bindings = <&kp H>, <&kp LEFT>;
             mods = <(MOD_RALT|MOD_LALT)>;
         };
         hm: homerow_mods {
@@ -93,7 +114,7 @@
       &tildq           &kp W        &kp E         &kp R         &kp T                &kp Y         &kp U         &kp I          &kp O         &kp P      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
 // │    A         │    S        │    D        │    F        │    G        │      │    H        │    J        │    K         │    L        │  ; : (")    │
-     &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &kp G                &kp H       &leftj         &hm RALT K    &hm RCTRL L      &td2      
+     &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &kp G                &lefth      &downj         &upl          &rightl          &td2      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
 // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    , <       │    . >      │    / ?      │
      &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT        &kp FSLH    
