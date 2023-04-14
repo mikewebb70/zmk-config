@@ -76,7 +76,7 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             quick-tap-ms = <0>;
-            flavor = "balanced";
+            flavor = "balance";
             bindings = <&kp>, <&kp>;
         };
     };
@@ -100,6 +100,13 @@
         #binding-cells = <0>;
         tapping-term-ms = <200>;
         bindings = <&hm RSHFT SEMI>, <&kp DQT>;
+      };  
+    td3: numword {
+        compatible = "zmk,behavior-tap-dance";
+        label = "NUM_NUMWORD";
+        #binding-cells = <0>;
+        tapping-term-ms = <200>;
+        bindings = <&lt NUM TAB>, <&num_word>;
       };  
     conditional_layers {
         compatible = "zmk,conditional-layers";
