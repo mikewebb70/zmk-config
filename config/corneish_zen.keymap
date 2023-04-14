@@ -28,6 +28,13 @@
 
 / {
     behaviors {
+        bspcdel: bspc_del {
+            compatible = "zmk,behavior-mod-morph";
+            label = "BSPC_DELETE";
+            #binding-cells = <0>;
+            bindings = <&lt SYM BSPC>, <&kp DEL>;
+            mods = <(MOD_RALT|MOD_LALT)>;
+          };
         tildq: tilda_q {
             compatible = "zmk,behavior-mod-morph";
             label = "GRAVE_ESCAPE";
@@ -113,14 +120,14 @@
 // │    Q ~       │      W      │    E        │    R        │    T        │      │    Y        │    U        │    I         │    O        │    P        │
       &tildq           &kp W        &kp E         &kp R         &kp T                &kp Y         &kp U         &kp I          &kp O         &kp P      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
-// │    A         │    S        │    D        │    F        │    G        │      │ H (←)       │ J RGUI (↓)  │ K RALT (↓)   │  L RCTRL (→) │  ; : (")    │
+// │    A         │    S        │    D        │    F        │    G        │      │ H (←)       │ J RGUI (↓)  │ K RALT (↓)   │ L RCTRL (→) │  ; : (")    │
      &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &kp G                &lefth      &downj         &upk          &rightl          &td2      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
 // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    , <       │    . >      │    / ?      │
-     &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT        &kp FSLH    
+       &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH   
 // ╰──────────────┴─────────────├─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┴─────────────╯
-//                              │  ESC/GUI       TAB/NUM    │    SPC      │      │ENT/SHFT/CAP │  BSPC/SYM   │    CTRL      │
-                                  &mt LGUI ESC  &lt NUM TAB     &kp SPACE             &td0       &lt SYM BSPC  &kp RCTRL    
+//                              │  ESC/GUI       TAB/NUM    │    SPC      │      │ENT/SHFT/CAP │BSPC/SYM(DEL)│    CTRL      │
+                                  &mt LGUI ESC  &lt NUM TAB     &kp SPACE             &td0       &bspcdel       &kp RCTRL    
 //                              ╰─────────────┴─────────────┴─────────────╯      ╰─────────────┴─────────────┴──────────────╯
         >;
       };
