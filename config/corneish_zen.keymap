@@ -70,6 +70,13 @@
             bindings = <&kp H>, <&kp LEFT>;
             mods = <(MOD_RALT|MOD_LALT)>;
         };
+        megapinky: mega_pinky {
+            compatible = "zmk,behavior-mod-morph";
+            label = "MEGA_PINKY";
+            #binding-cells = <0>;
+            bindings = <&td0>, <&kp APOS>;
+            mods = <(MOD_RALT|MOD_LALT)>;
+        };
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             label = "HOMEROW_MODS";
@@ -127,13 +134,13 @@
 // │    Q ~       │      W      │    E        │    R        │    T        │      │    Y        │    U        │    I         │    O        │    P        │
       &tildq           &kp W        &kp E         &kp R         &kp T                &kp Y         &kp U         &kp I          &kp O         &kp P      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
-// │    A         │    S        │    D        │    F        │    G        │      │ H (←)       │ J RGUI (↓)  │ K RALT (↓)   │ L RCTRL (→) │  ; : (")    │
-     &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &kp G                &lefth      &downj         &upk          &rightl          &td2      
+// │    A         │    S        │    D        │    F        │    G        │      │ H/(←)       │ J/RGUI/(↓)  │ K/RALT/(↓)   │ L/RCTRL/(→) │  ;/:/["]/() │
+     &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &kp G                &lefth      &downj         &upk          &rightl       &megapinky      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
 // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    , <       │    . >      │    / ?      │
        &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH   
 // ╰──────────────┴─────────────├─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┴─────────────╯
-//                              │  ESC/GUI       TAB/NUM    │    SPC      │      │ENT/SHFT/CAP │BSPC/SYM(DEL)│    CTRL      │
+//                              │  ESC/GUI       TAB/NUM    │    SPC      │      │ENT/SHFT/CAP │BSP/SYM/[DEL]│    CTRL      │
                                   &mt LGUI ESC  &lt NUM TAB     &kp SPACE             &td0       &bspcdel       &kp RCTRL    
 //                              ╰─────────────┴─────────────┴─────────────╯      ╰─────────────┴─────────────┴──────────────╯
         >;
@@ -146,7 +153,7 @@
 // │    1 !      │     2 @     │    3 #      │      4 $    │    5        │       │     6       │     7       │     8       │     9       │    0        │
      &kp N1         &kp N2        &kp N3          &kp N4       &kp N5                  &kp N6       &kp N7        &kp N8        &kp N9      &kp N0 
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// │             │             │             │+/LGUI/(LGUI)│    -        │       │     .       │     4       │     5       │     6       │             │
+// │             │             │             │+/LGUI/[LGUI]│    -        │       │     .       │     4       │     5       │     6       │             │
      &sk LSHIFT    &trans       &sk LG(LSHIFT)   &td1        &kp MINUS             &kp DOT      &hm RGUI 4   &hm RALT N5   &hm RALT N6   &hm RSHFT COLON 
 // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤       ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
 // │  UNDO/bg%   │  CUT        │ COPY/SIGINIT   PASTE      │    _        │       │     0       │     1       │     2       │     3       │             │
