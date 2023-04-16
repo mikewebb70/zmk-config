@@ -85,7 +85,15 @@
             quick-tap-ms = <0>;
             flavor = "balance";
             bindings = <&kp>, <&kp>;
-        };
+       };     
+       num_word: behavior_num_word {
+			      compatible = "zmk,behavior-caps-word";
+			      label = "NUM_WORD";
+			      #binding-cells = <0>;
+            layers = <NUM>;                                
+			      continue-list = <BACKSPACE DELETE DOT COMMA COLON UNDERSCORE>; 
+            ignore-numbers;                                
+		  };
     };
     td0: super_shift {
         compatible = "zmk,behavior-tap-dance";
@@ -141,7 +149,7 @@
        &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH   
 // ╰──────────────┴─────────────├─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┴─────────────╯
 //                              │  ESC/GUI       TAB/NUM    │    SPC      │      │ENT/SHFT/CAP │BSP/SYM/[DEL]│    CTRL      │
-                                  &mt LGUI ESC  &lt NUM TAB     &kp SPACE             &td0       &bspcdel       &kp RCTRL    
+                                  &mt LGUI ESC    &td3          &kp SPACE             &td0       &bspcdel       &kp RCTRL    
 //                              ╰─────────────┴─────────────┴─────────────╯      ╰─────────────┴─────────────┴──────────────╯
         >;
       };

@@ -1,11 +1,11 @@
 manifest:
   remotes:
-    - name: caksoylar
-      url-base: https://github.com/caksoylar
+    - name: urob
+      url-base: https://github.com/urob
   projects:
     - name: zmk
-      remote: caksoylar
-      revision: caksoylar/zen-v2  # custom branch name
+      remote: urob
+      revision: main
       import: app/west.yml
   self:
     path: config
