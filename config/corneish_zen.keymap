@@ -89,7 +89,7 @@ ZMK_BEHAVIOR(lefth, mod_morph,
   )
 
 // tap: ; | ralt + tap: ' | shift + tap: : | double tap: " 
-ZMK_BEHAVIOR(megapink, mod_morph,
+ZMK_BEHAVIOR(megapinky, mod_morph,
    label = "MEGA_PINKY";
    bindings = <&q_quote>, <&kp APOS>;
    mods = <(MOD_RALT|MOD_LALT)>;
