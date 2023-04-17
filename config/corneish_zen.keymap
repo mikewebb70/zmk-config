@@ -46,11 +46,62 @@ ZMK_BEHAVIOR(hm, hold_tap,
 
 // [ Mod Morphing definitions]
 
-// tap: backspace | shift + tap: delete | hold: num layer
-ZMK_BEHAVIOR(bs_del_num, mod_morph,
-    bindings = <&lt NUM BSPC>, <&kp DEL>;
-    mods = <(MOD_LSFT|MOD_RSFT)>;
+// tap: backspace | ralt + tap: delete | hold: sym layer
+ZMK_BEHAVIOR(bspdel, mod_morph,
+    label = "BSPC_DELETE";
+    bindings = <&lt SYM BSPC>, <&kp DEL>;
+    mods = <(MOD_RALT|MOD_LALT)>;
   )
+
+// tap: Q | ralt + tap: ~  
+ZMK_BEHAVIOR(tildq, mod_morph,
+    label = "TILDA_Q";
+    bindings = <&kp Q>, <&kp TILDE>;
+    mods = <(MOD_RALT|MOD_LALT)>;
+  ) 
+
+// tap: J | ralt + tap: down arrow | hold: RGUI 
+ZMK_BEHAVIOR(downj, mod_morph,
+    label = "DOWNARROW_J";
+    bindings = <&hm RGUI J>, <&kp DOWN>;
+    mods = <(MOD_RALT|MOD_LALT)>;
+  ) 
+
+// tap: J | ralt + tap: down arrow | hold: RGUI 
+ZMK_BEHAVIOR(upk, mod_morph,
+    label = "UPARROW_K";
+    bindings = <&hm RALT K>, <&kp UP>;
+    mods = <(MOD_RALT|MOD_LALT)>;
+  )
+
+// tap: L | ralt + tap: right arrow | hold: RCTL 
+ZMK_BEHAVIOR(rightl, mod_morph,
+    label = "RIGHTARROW_L";
+    bindings = <&hm RCTRL L>, <&kp RIGHT>;
+    mods = <(MOD_RALT|MOD_LALT)>;
+  ) 
+
+// tap: H | ralt + tap: left arrow  
+ZMK_BEHAVIOR(lefth, mod_morph,
+    label = "LEFTARROW_H";
+    bindings = <&kp H>, <&kp LEFT>;
+    mods = <(MOD_RALT|MOD_LALT)>;
+  )
+
+// tap: ; | ralt + tap: ' | shift + tap: : | double tap: " 
+ZMK_BEHAVIOR(megapink, mod_morph,
+   label = "MEGA_PINKY";
+   bindings = <&q_quote>, <&kp APOS>;
+   mods = <(MOD_RALT|MOD_LALT)>;
+  )
+ 
+// [ Num_Word (like CAPS-WORDS) ]
+&num_word {
+   label = "NUM_WORD";
+   layers = <NUM>;                                
+   continue-list = <BACKSPACE DELETE DOT COMMA COLON UNDERSCORE>; 
+   ignore-numbers;                                
+};
 
 // [ Tap dance definitions ]
 
@@ -78,79 +129,14 @@ ZMK_BEHAVIOR(num_num, tap_dance,
     bindings = <&lt NUM TAB>, <&num_word>;
   )
 
-/ {
-    behaviors {
-        bspcdel: bspc_del {
-            compatible = "zmk,behavior-mod-morph";
-            label = "BSPC_DELETE";
-            #binding-cells = <0>;
-            bindings = <&lt SYM BSPC>, <&kp DEL>;
-            mods = <(MOD_RALT|MOD_LALT)>;
-          };
-        tildq: tilda_q {
-            compatible = "zmk,behavior-mod-morph";
-            label = "GRAVE_ESCAPE";
-            #binding-cells = <0>;
-            bindings = <&kp Q>, <&kp TILDE>;
-            mods = <(MOD_RALT|MOD_LALT)>;
-        };
-         downj: down_j{
-            compatible = "zmk,behavior-mod-morph";
-            label = "DOWNARROW_J";
-            #binding-cells = <0>;
-            bindings = <&hm RGUI J>, <&kp DOWN>;
-            mods = <(MOD_RALT|MOD_LALT)>;
-        };
-         upk: up_k{
-            compatible = "zmk,behavior-mod-morph";
-            label = "UPARROW_K";
-            #binding-cells = <0>;
-            bindings = <&hm RALT K>, <&kp UP>;
-            mods = <(MOD_RALT|MOD_LALT)>;
-        };
-        rightl: right_l {
-            compatible = "zmk,behavior-mod-morph";
-            label = "RIGHTARROW_L";
-            #binding-cells = <0>;
-            bindings = <&hm RCTRL L>, <&kp RIGHT>;
-            mods = <(MOD_RALT|MOD_LALT)>;
-        };
-        lefth: left_h {
-            compatible = "zmk,behavior-mod-morph";
-            label = "LEFTARROW_H";
-            #binding-cells = <0>;
-            bindings = <&kp H>, <&kp LEFT>;
-            mods = <(MOD_RALT|MOD_LALT)>;
-        };
-        megapinky: mega_pinky {
-            compatible = "zmk,behavior-mod-morph";
-            label = "MEGA_PINKY";
-            #binding-cells = <0>;
-            bindings = <&tq_quote>, <&kp APOS>;
-            mods = <(MOD_RALT|MOD_LALT)>;
-        };
-       num_word: behavior_num_word {
-			      compatible = "zmk,behavior-caps-word";
-			      label = "NUM_WORD";
-			      #binding-cells = <0>;
-            layers = <NUM>;                                
-			      continue-list = <BACKSPACE DELETE DOT COMMA COLON UNDERSCORE>; 
-            ignore-numbers;                                
-		  };
-    };
+/* Key Mapping */
 
-};
-    keymap {
-      compatible = "zmk,keymap";
-
-     default_layer {
-        label = "QWERTY";
-        bindings = <
+ZMK_LAYER(defualt,
 // ╭──────────────┬─────────────┬─────────────┬─────────────┬─────────────╮      ╭─────────────┬─────────────┬──────────────┬─────────────┬─────────────╮
 // │    Q ~       │      W      │    E        │    R        │    T        │      │    Y        │    U        │    I         │    O        │    P        │
       &tildq           &kp W        &kp E         &kp R         &kp T                &kp Y         &kp U         &kp I          &kp O         &kp P      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
-// │    A         │    S        │    D        │    F        │    G        │      │ H/(←)       │ J/RGUI/(↓)  │ K/RALT/(↓)   │ L/RCTRL/(→) │  ;/:/["]/() │
+// │    A         │    S        │    D        │    F        │    G        │      │ H/(←)       │ J/RGUI/(↓)  │ K/RALT/(↓)   │ L/RCTRL/(→) │ ;/:/["]/(') │
      &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &kp G                &lefth      &downj         &upk          &rightl       &megapinky      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
 // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    , <       │    . >      │    / ?      │
@@ -159,12 +145,9 @@ ZMK_BEHAVIOR(num_num, tap_dance,
 //                              │  ESC/GUI       TAB/NUM    │    SPC      │      │ENT/SHFT/CAP │BSP/SYM/[DEL]│    CTRL      │
                                   &mt LGUI ESC   &num_num      &kp SPACE             &s_shift    &bspcdel       &kp RCTRL    
 //                              ╰─────────────┴─────────────┴─────────────╯      ╰─────────────┴─────────────┴──────────────╯
-        >;
-      };
+)
 
-     num_layer {
-        label = "NUMBER";
-        bindings = <
+ZMK_LAYER(num,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
 // │    1 !      │     2 @     │    3 #      │      4 $    │    5        │       │     6       │     7       │     8       │     9       │    0        │
      &kp N1         &kp N2        &kp N3          &kp N4       &kp N5                  &kp N6       &kp N7        &kp N8        &kp N9      &kp N0 
@@ -178,12 +161,9 @@ ZMK_BEHAVIOR(num_num, tap_dance,
 //                             │             │             │             │       │             │             │             │                            
                                   &trans         &trans       &trans                &trans        &trans        &trans
 //                             ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
-        >;
-      }; // layer
+)
 
-     sym_layer {
-        label = "SYMBOL";
-        bindings = <
+ZMK_LAYER(nav,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬──────────────┬─────────────╮
 // │  !          │  @          │  #          │  $          │  %          │       │  ^          │  &          │  (          │  )           │  )          │
       &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT             &kp CARET     &kp AMPS     &kp LPAR       &kp RPAR       &kp RPAR    
@@ -197,13 +177,9 @@ ZMK_BEHAVIOR(num_num, tap_dance,
 //                             │             │             │             │       │             │             │             │                            
                                   &trans         &trans        &trans                &trans        &trans        &trans
 //                             ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
+)
 
-        >;
-      }; //layer
-
-     sys_layer {
-        label = "SYSTEM";
-        bindings = <
+ZMK_LAYER(sys,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮       ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
 // │             │             │             │             │             │       │             │             │             │             │             │
      &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                 &kp F6      &kp F7        &kp F8        &kp F9        &kp F10
@@ -217,8 +193,4 @@ ZMK_BEHAVIOR(num_num, tap_dance,
 //                             │             │             │             │       │             │             │             │                            
                                   &trans         &trans       &trans                &trans        &trans        &trans
 //                             ╰─────────────┴─────────────┴─────────────╯       ╰─────────────┴─────────────┴─────────────╯
-        >;
-      }; //layer
-
-    }; //keymap
-  }; //root
+)
