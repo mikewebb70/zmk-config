@@ -47,7 +47,7 @@ ZMK_BEHAVIOR(hm, hold_tap,
 // [ Mod Morphing definitions]
 
 // tap: backspace | ralt + tap: delete | hold: sym layer
-ZMK_BEHAVIOR(bspdel, mod_morph,
+ZMK_BEHAVIOR(bspcdel, mod_morph,
     label = "BSPC_DELETE";
     bindings = <&lt SYM BSPC>, <&kp DEL>;
     mods = <(MOD_RALT|MOD_LALT)>;
