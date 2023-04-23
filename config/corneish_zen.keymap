@@ -136,13 +136,13 @@ ZMK_LAYER(QWERTY,
 // │    Q (~)     │      W      │    E        │    R        │    T        │      │    Y        │    U        │    I         │    O        │    P        │
       &tildq           &kp W        &kp E         &kp R         &kp T                &kp Y         &kp U         &kp I          &kp O         &kp P      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
-// │    A         │    S        │    D        │    F        │    G        │      │ H/(←)       │ J/RGUI/(↓)  │ K/RALT/(↓)   │ L/RCTRL/(→) │ ;/:/["]/(') │
+// │    A         │    S        │    D        │    F        │    G        │      │ H/(←)       │ J/RGUI/(↓)  │ K/RALT/(↑)   │ L/RCTRL/(→) │ ;/:/["]/(') │
      &hm LSHFT A     &hm LCTRL S  &hm LALT D    &hm LGUI F      &kp G                &lefth      &downj         &upk          &rightl       &megapinky      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
 // │    Z         │    X        │    C        │    V        │    B        │      │    N        │    M        │    , <       │    . >      │    / ?      │
        &kp Z         &kp X         &kp C         &kp V         &kp B                 &kp N         &kp M         &kp COMMA      &kp DOT       &kp FSLH   
 // ╰──────────────┴─────────────├─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┴─────────────╯
-//                              │  ESC/GUI       TAB/NUM    │    SPC      │      │ENT/SHFT/CAP │BSP/SYM/[DEL]│    CTRL      │
+//                              │  ESC/GUI     TAB/NUM/(NW) │    SPC      │      │ENT/SHFT/(CW)│BSP/SYM/[DEL]│    CTRL      │
                                   &mt LGUI ESC   &num_num      &kp SPACE             &s_shift    &bspcdel       &kp RCTRL    
 //                              ╰─────────────┴─────────────┴─────────────╯      ╰─────────────┴─────────────┴──────────────╯
 )
