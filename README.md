@@ -1,3 +1,3 @@
-![](img/deafaul-layer.jpg)
-![](img/default.jpg)
+![](img/deafault-layer.jpg)
+![](img/desktop.jpg)
 ![](img/keys.png)
