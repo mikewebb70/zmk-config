@@ -129,11 +129,17 @@ ZMK_BEHAVIOR(num_num, tap_dance,
     bindings = <&lt NUM TAB>, <&num_word>;
   )
 
+// tick_tilda: tap: Q | ralt + tap: ~ | double-tap: `
+ZMK_BEHAVIOR(tick_tilda, tap_dance,
+    tapping-term-ms = <200>;
+    dt-bindings = <&td q_quote>, <&td tick_tilda>;j
+  )
+
 /* Key Mapping */
 
 ZMK_LAYER(QWERTY,
 // ╭──────────────┬─────────────┬─────────────┬─────────────┬─────────────╮      ╭─────────────┬─────────────┬──────────────┬─────────────┬─────────────╮
-// │    Q (~)     │      W      │    E        │    R        │    T        │      │    Y        │    U        │    I         │    O        │    P        │
+// │    Q/[`]/(~) │      W      │    E        │    R        │    T        │      │    Y        │    U        │    I         │    O        │    P        │
       &tildq           &kp W        &kp E         &kp R         &kp T                &kp Y         &kp U         &kp I          &kp O         &kp P      
 // ├──────────────┼─────────────┼─────────────┼─────────────┼─────────────┤      ├─────────────┼─────────────┼──────────────┼─────────────┼─────────────┤
 // │    A         │    S        │    D        │    F        │    G        │      │ H/(←)       │ J/RGUI/(↓)  │ K/RALT/(↑)   │ L/RCTRL/(→) │ ;/:/["]/(') │
