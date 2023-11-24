@@ -132,7 +132,7 @@ ZMK_BEHAVIOR(num_num, tap_dance,
 // tick_tilda: tap: Q | ralt + tap: ~ | double-tap: `
 ZMK_BEHAVIOR(tick_tilda, tap_dance,
     tapping-term-ms = <200>;
-    bindings = <&td q_quote>, <&td tick_tilda>;j
+    bindings = <&td q_quote>, <&td tick_tilda>;
   )
 
 /* Key Mapping */
