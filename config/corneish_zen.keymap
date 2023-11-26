@@ -12,7 +12,7 @@
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/keypos_def/keypos_36keys.h"
 
-#define DEFAULT 0
+#define DEF 0
 #define NUM 1 
 #define SYM 2
 #define SYS 3
@@ -39,7 +39,7 @@ ZMK_BEHAVIOR(hm, hold_tap,
     flavor = "balanced";
     tapping-term-ms = <280>;
     quick-tap-ms = <125>;
-    global-quick-tap-ms = <150>; 
+    require-prior-idle-ms = <150>; 
     bindings = <&kp>, <&kp>;
   )
 
@@ -47,56 +47,48 @@ ZMK_BEHAVIOR(hm, hold_tap,
 
 // tap: backspace | ralt + tap: delete | hold: sym layer
 ZMK_BEHAVIOR(bspcdel, mod_morph,
-    label = "BSPC_DELETE";
     bindings = <&lt SYM BSPC>, <&kp DEL>;
     mods = <(MOD_RALT|MOD_LALT)>;
   )
 
 // tap: Q | ralt + tap: ~  
 ZMK_BEHAVIOR(tildq, mod_morph,
-    label = "TILDA_Q";
     bindings = <&kp Q>, <&kp TILDE>;
     mods = <(MOD_RALT|MOD_LALT)>;
   ) 
 
 // tap: J | ralt + tap: down arrow | hold: RGUI 
 ZMK_BEHAVIOR(downj, mod_morph,
-    label = "DOWNARROW_J";
     bindings = <&hm RGUI J>, <&kp DOWN>;
     mods = <(MOD_RALT|MOD_LALT)>;
   ) 
 
 // tap: J | ralt + tap: down arrow | hold: RGUI 
 ZMK_BEHAVIOR(upk, mod_morph,
-    label = "UPARROW_K";
     bindings = <&hm RALT K>, <&kp UP>;
     mods = <(MOD_RALT|MOD_LALT)>;
   )
 
 // tap: L | ralt + tap: right arrow | hold: RCTL 
 ZMK_BEHAVIOR(rightl, mod_morph,
-    label = "RIGHTARROW_L";
     bindings = <&hm RCTRL L>, <&kp RIGHT>;
     mods = <(MOD_RALT|MOD_LALT)>;
   ) 
 
 // tap: H | ralt + tap: left arrow  
 ZMK_BEHAVIOR(lefth, mod_morph,
-    label = "LEFTARROW_H";
     bindings = <&kp H>, <&kp LEFT>;
     mods = <(MOD_RALT|MOD_LALT)>;
   )
 
 // tap: ; | ralt + tap: ' | shift + tap: : | double tap: " 
 ZMK_BEHAVIOR(megapinky, mod_morph,
-   label = "MEGA_PINKY";
    bindings = <&q_quote>, <&kp APOS>;
    mods = <(MOD_RALT|MOD_LALT)>;
   )
  
 // [ Num_Word (like CAPS-WORDS) ]
 &num_word {
-   label = "NUM_WORD";
    layers = <NUM>;                                
    continue-list = <BACKSPACE DELETE DOT COMMA COLON UNDERSCORE>; 
    ignore-numbers;                                
